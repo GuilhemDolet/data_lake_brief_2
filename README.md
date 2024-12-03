@@ -35,12 +35,21 @@ Une fois que le résident a obtenu la clé, il peut accéder à la boîte aux le
 ### Traduction en contexte Azure
 
 L'immeuble représente Azure.
+
 La boîte aux lettres représente le Data Lake.
+
 Concierge A (Service Principal 1) :
+
 Définit le nom du secret qui donne accès au Data Lake.
+
 Concierge B (Service Principal 2) :
+
 Garde la valeur du secret dans un coffre-fort (Key Vault).
+
 Le résident (l’application Python) :
+
 Lit le nom du secret depuis le fichier .env local.
+
 Fait une requête à Concierge B (Key Vault) pour obtenir la clé (la valeur du secret).
+
 Utilise cette clé pour interagir avec le Data Lake en toute sécurité.
