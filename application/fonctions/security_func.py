@@ -1,5 +1,7 @@
 from azure.identity import ClientSecretCredential
 from azure.keyvault.secrets import SecretClient
+from azure.storage.blob import BlobServiceClient
+
 
 # Fonction pour récupérer la valeur du secret, stocké dans keyvault
 
@@ -22,3 +24,20 @@ def get_secret_from_keyvault_with_sp(secret_name, key_vault_url, client_id, clie
 
     return secret.value
 
+def connect_to_data_lake(client_id, client_secret, tenant_id, storage_account_name):
+    """Cette fonction va permettre la connexion au datalake, en utilisant le mot de passe
+    récupérer sur keyvault, afin de se connecter au service principale disposant des droits
+    d'écriture sur le datalake.
+
+    Args:
+        client_id (_type_, optional): _description_. Defaults to client_id_dl.
+        client_secret (_type_, optional): _description_. Defaults to mdp.
+        tenant_id (_type_, optional): _description_. Defaults to tenant_id.
+    """
+    credential = ClientSecretCredential(tenant_id=tenant_id, client_id=client_id, client_secret=client_secret)
+    
+    blob_service_client = BlobServiceClient(account_url=f"https://{storage_account_name}.blob.core.windows.net", credential=credential)
+
+    print("Connexion au DataLake réussi")
+
+    return blob_service_client
