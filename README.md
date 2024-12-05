@@ -73,11 +73,12 @@ Utilise cette clé pour interagir avec le Data Lake en toute sécurité.
 # DATABRICKS
 ### Ce que j'ai compris de la sécurité avec Databricks 
 
-Déroulement simplifié
+**Déroulement simplifié**
     
 La création du scope dans Databricks et qui pointe vers KeyVault, permet à notre environnement de travail databricks d'accéder et lister les secrets du keyvault
 
-Récupération du secret depuis Key Vault via le notebook de databricks avec la fonction **dbutils.secrets.get(scope="datalake_scope", key="DatabricksSPSecret")**. 
+Récupération du secret depuis Key Vault via le notebook de databricks avec la fonction **dbutils.secrets.get(scope="datalake_scope", key="DatabricksSPSecret")**.
+
 On lui donne en paramètres le nom du scope et le nom du secret qui nous intéresse.
 
 La valeur du secret (le mot de passe ou la clé d’accès) est utilisée pour authentifier l’accès au Service Principal. Cela se fait via une fonction ou une commande comme DefaultAzureCredential ou autre méthode d’authentification explicite (par exemple, via ClientSecretCredential en Python).
@@ -87,11 +88,11 @@ Service Principal authentifié :
 Une fois authentifié avec succès en utilisant la valeur du secret, le Service Principal agit comme une "identité" sécurisée.
 Cette identité possède les permissions attribuées (par exemple, un rôle IAM comme Storage Blob Data Contributor) qui lui permettent d’interagir avec le Data Lake.
 
-Accès au Data Lake :
+**Accès au Data Lake** :
 
 Grâce aux droits attachés au Service Principal, Databricks peut utiliser cette identité pour effectuer des opérations sur le Data Lake, comme écrire ou lire des fichiers.
 
-Résumé étape par étape
+**Résumé étape par étape**
 
 Le secret (mot de passe) → permet de se connecter au Service Principal.
 
