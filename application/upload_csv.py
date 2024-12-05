@@ -18,7 +18,7 @@ client_id_dl = os.getenv("SP_DL_CLIENT_ID")
 storage_account_name = os.getenv("STORAGE_ACCOUNT_NAME")
 
 local_file_path = "./external_data/data.csv"
-blob_name = "mon_deuxieme_fichier_sur_mon_data_lake"
+blob_name = "csv_for_databricks"
 
 # 1ere étape : je récupère la valeur de mon secret, dans keyvault, en me connectant au service principal secondaire
 mdp = get_secret_from_keyvault_with_sp(secret_name, key_vault_url, client_id, client_secret, tenant_id )
