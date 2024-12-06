@@ -110,4 +110,17 @@ Le **Log Analytics Workspace** est une BDD dans laquel on peut exporter et analy
 
 Lorsque je configure un export d'Activity Logs vers un workspace, je peux cibler juste un ressource groupe et/ou une ressource en particulier. Les logs seront donc envoyé directement au workspace. 
 
+## Metrics
 
+Les métriques sont des données numériques mesurées sur une période donnée. Pour un Storage Account (Data Lake),les métriques pertinentes peuvent être:
+
+  - **Network Ingress : Volume de données entrantes**.
+  - **Network Egress : Volume de données sortantes**.
+  - Success E2E Latency : Temps de latence des requêtes réussies (de bout en bout).
+  - **Availability : Pourcentage de disponibilité du service**.
+  - Transactions : Nombre total de transactions sur le compte.
+  - Success Operations : Nombre de requêtes réussies.
+  - Failed Operations : Nombre de requêtes ayant échoué.
+
+
+![alt text](./screenshot/metrics.png)
