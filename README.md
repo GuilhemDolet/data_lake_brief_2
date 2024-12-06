@@ -6,7 +6,7 @@ Je voulais parcourir toutes les grandes étapes du brief, et ensuite, si il me r
 Etat du répo actuelle :
   - Script python pour charger un fichier csv et parquet locale, vers un datalake, en passant toutes les sécurités. **niveau 1**
   - Journalisation des connexions à KeyVault, stocké dans ce même datalake, en mode archive. 
-  ![le screenshot des archives de journalisation](image.png)
+  ![le screenshot des archives de journalisation](./screenshot/image.png)
   - Le notebook de databricks. 
 
 
@@ -99,3 +99,15 @@ Le secret (mot de passe) → permet de se connecter au Service Principal.
 Le Service Principal → agit en tant qu'utilisateur ayant des droits IAM sur le Data Lake.
 
 Ces droits IAM → autorisent des actions spécifiques sur le Data Lake, comme l'écriture ou la lecture.
+
+# MONITORING ET ALERTE
+
+## Activity logs
+
+Le **service Monitor** est branché sur la subsciption de base. Dans l'onglet Activity log, on va pouvoir retrouver toutes les activités liés à la subscription si on ne change aucun filtre. Il observe l'ensemble de la subscription. 
+
+Le **Log Analytics Workspace** est une BDD dans laquel on peut exporter et analyser des logs, provenant de **Activity Logs** par exemple.
+
+Lorsque je configure un export d'Activity Logs vers un workspace, je peux cibler juste un ressource groupe et/ou une ressource en particulier. Les logs seront donc envoyé directement au workspace. 
+
+
